@@ -64,9 +64,9 @@ pipeline {
        stage('Code Quality Check via SonarQube') {
             steps {
                 script {
-                    def scannerHome = tool 'SonarQube_Flask'
-                    withSonarQubeEnv('SonarQube_Flask') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=FlaskDemo -Dsonar.sources=."
+                    def scannerHome = tool 'SonarQube_Practical'
+                    withSonarQubeEnv('SonarQube_Practical') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=ssdpractical -Dsonar.sources=."
                     }
                 }
             }
