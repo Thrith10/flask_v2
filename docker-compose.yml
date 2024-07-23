@@ -1,23 +1,6 @@
 version: '3'
 
 services:
-  jenkins:
-    container_name: jenkins
-    build: ./jenkins
-    ports:
-      - '8081:8080'
-      - '443:8443'
-      - '50000:50000'
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - ./jenkins_home:/var/jenkins_home
-  
-  webapp:
-    container_name: webapp
-    build: ./webapp
-    ports:
-      - "80:80"
-
   sonarqube:
     image: sonarqube:latest
     container_name: sonarqube
@@ -57,8 +40,6 @@ services:
       - git_repo:/home/git
 
 volumes:
-  jenkins_data:
-    driver: local
   sonarqube_conf:
   sonarqube_data:
   sonarqube_logs:

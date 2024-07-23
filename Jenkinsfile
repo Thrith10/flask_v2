@@ -10,15 +10,9 @@ pipeline {
         }
 
         stage('Build Docker Image') {
-            agent {
-                docker {
-                    image 'docker:19.03'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace'
-                }
-            }
             steps {
                 script {
-                    docker.build('my-flask-app:latest', '-f webapp/Dockerfile webapp')
+                    docker.build('my-flask-app:latest', '-f Dockerfile.flask .')
                 }
             }
         }
