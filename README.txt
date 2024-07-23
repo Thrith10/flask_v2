@@ -1,3 +1,5 @@
+Github URL (public): https://github.com/Thrith10/flask_v2.git
+
 Followed Lab 7B to create the Jenkins 
 
 At cmd : 
@@ -37,4 +39,9 @@ docker run --name jenkins-blueocean --restart=on-failure --detach ^
   --env DOCKER_CERT_PATH=/certs/client --env DOCKER_TLS_VERIFY=1 ^
   --volume jenkins-data:/var/jenkins_home ^
   --volume jenkins-docker-certs:/certs/client:ro ^
-  --publish 8080:8080 --publish 50000:50000 myjenkins-blueocean:2.452.3-1
+  --publish 8085:8080 --publish 50000:50000 myjenkins-blueocean:2.452.3-1
+
+
+Creating the local flask app through deploy.sh command
+
+docker run -d -p 5000:5000 --name my-flask-app -v "/mnt/c/mods/y2t3/ssd/own github/flaskdemo" my-flask-app

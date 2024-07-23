@@ -112,7 +112,7 @@ pipeline {
                     steps {
                         sh './jenkins/scripts/deploy.sh'
                         input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                        sh './jenkins/scripts/kill_integration.sh'
+                        sh './jenkins/scripts/kill.sh'
                     }
                 }
             }
