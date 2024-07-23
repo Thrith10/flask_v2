@@ -20,7 +20,7 @@ pipeline {
         stage('Prepare Scripts') {
             steps {
                 sh 'git update-index --chmod=+x jenkins/scripts/deploy.sh'
-                sh 'git update-index --chmod=+x jenkins/scripts/kill_integration.sh'
+                sh 'git update-index --chmod=+x jenkins/scripts/kill.sh'
             }
         }
 
