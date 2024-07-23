@@ -15,7 +15,7 @@ class AppTest(unittest.TestCase):
         chrome_options.add_argument("--disable-dev-shm-usage")
         self.driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
         self.wait = WebDriverWait(self.driver, 30)
-        self.url = "http://192.168.1.9:5000"  # Make sure this matches your Flask app's host and port
+        self.url = "http://192.168.114.139:5000"  # Make sure this matches your Flask app's host and port
         self.valid_search_term = "SafeSearch"
         self.invalid_search_term_xss = "<script>alert('XSS')</script>"
         self.invalid_search_term_sql = "SELECT * FROM users"
