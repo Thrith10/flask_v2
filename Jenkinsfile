@@ -61,6 +61,17 @@ pipeline {
             }
         }
 
+       stage('Code Quality Check via SonarQube') {
+            steps {
+                script {
+                    def scannerHome = tool 'SonarQube_Flask'
+                    withSonarQubeEnv('SonarQube_Flask') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=FlaskDemo -Dsonar.sources=."
+                    }
+                }
+            }
+        }
+
         stage('Integration UI Test') {
             parallel {
                 stage('Headless Browser Test') {
@@ -102,17 +113,6 @@ pipeline {
                         sh './jenkins/scripts/deploy.sh'
                         input message: 'Finished using the web site? (Click "Proceed" to continue)'
                         sh './jenkins/scripts/kill_integration.sh'
-                    }
-                }
-            }
-        }
-
-        stage('Code Quality Check via SonarQube') {
-            steps {
-                script {
-                    def scannerHome = tool 'SonarQube_Flask'
-                    withSonarQubeEnv('SonarQube_Flask') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=FlaskDemo -Dsonar.sources=."
                     }
                 }
             }
