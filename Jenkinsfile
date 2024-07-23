@@ -12,7 +12,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    docker.build('my-flask-app:latest', '-f Dockerfile.flask .')
+                    docker.build('my-flask-app:latest', '-f Dockerfile .')
                 }
             }
         }
