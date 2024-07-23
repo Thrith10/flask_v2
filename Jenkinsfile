@@ -12,8 +12,8 @@ pipeline {
         stage('Build Docker Image') {
             agent {
                 docker {
-                    image 'docker:latest'
-                    args '-v /var/run/docker.sock:/var/run/docker.sock'
+                    image 'docker:19.03'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock -v $(pwd):/workspace'
                 }
             }
             steps {
